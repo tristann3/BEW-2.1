@@ -15,6 +15,8 @@ const app = express();
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/petes-pets');
+
+//this middleware is specifying the path to static files by appending public tot he end of our current directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // view engine setup
@@ -29,6 +31,7 @@ app.use(methodOverride('_method'))
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 // logger logs HTTP requests in the server terminal with 'dev' formatting
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
