@@ -22,4 +22,8 @@ module.exports = (io, socket, onlineUsers) => {
     io.emit("user has left", onlineUsers);
     console.log(`✋ ${socket.username} has left the chat! ✋`);
   });
+
+  socket.on("new channel", newChannel => {
+    console.log(newChannel);
+  });
 };
