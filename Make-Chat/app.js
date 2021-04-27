@@ -5,9 +5,11 @@ const server = require("http").Server(app);
 
 //Socket.io
 const io = require("socket.io")(server);
+//We'll store our online users here
+let onlineUsers = {};
 io.on("connection", socket => {
-  // This file will be read on new socket connections
-  require("./public/sockets/chat.js")(io, socket);
+  // Make sure to send the users to our chat file
+  require("./public/sockets/chat.js")(io, socket, onlineUsers);
 });
 
 const exphbs = require("express-handlebars");
