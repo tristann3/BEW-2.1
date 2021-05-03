@@ -10,9 +10,9 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  io.emit('chat message', "A User has connected");
   socket.on('disconnect', () => {
-    console.log('user disconnected');
+    io.emit('chat message', "A User has disconnected");
   });
 });
 
